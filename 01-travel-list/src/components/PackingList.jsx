@@ -7,7 +7,12 @@ import Item from './Item';
 //   { id: 3, description: 'Cable', quantity: 5, packed: true },
 // ];
 
-export default function PackingList({ items, onDeleteItems, onToggleItems }) {
+export default function PackingList({
+  items,
+  onDeleteItems,
+  onToggleItems,
+  onClearLists,
+}) {
   const [sortBy, setSortBy] = useState('input');
 
   let sortedItems;
@@ -24,10 +29,6 @@ export default function PackingList({ items, onDeleteItems, onToggleItems }) {
       .slice()
       .sort((a, b) => Number(a.packed) - Number(b.packed));
 
-  function handleClearList() {
-    onDeleteItems();
-  } 
-
   return (
     <div className='list'>
       <ul>
@@ -43,11 +44,11 @@ export default function PackingList({ items, onDeleteItems, onToggleItems }) {
 
       <div className='actions'>
         <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
-          <option value='input'>SORT BY INPUT ORDER</option>
-          <option value='description'>SORT BY INPUT DESCRIPTION</option>
-          <option value='packed'>SORT BY INPUT PACKED STATUS</option>
+          <option value='input'>Sort by input order</option>
+          <option value='description'>Sort by input description</option>
+          <option value='packed'>Sort by input packed stated</option>
         </select>
-        <button onClick={handleClearList}>CLEAR LIST</button>
+        <button onClick={onClearLists}>Clear Lists</button>
       </div>
     </div>
   );
