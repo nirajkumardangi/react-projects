@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap');
+
+:root {
+  --red: hsl(14, 86%, 42%);
+  --green: hsl(159, 69%, 38%);
+
+  --rose-50: hsl(20, 50%, 98%);
+  --rose-100: hsl(13, 31%, 9%);
+  --rose-300: hsl(14, 25%, 7%);
+  --rose-400: hsl(7, 20%, 60%);
+  --rose-500: hsl(12, 20%, 4%);
+  --rose-900: hsl(14, 65%, 9%);
+}
+
+html {
+  font-family: "Red Hat Text", sans-serif;
+  font-optical-sizing: auto;
+  line-height: 1.5;
+  font-weight: 500;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 85%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: var(--rose-50);
+  color: var(--rose-100);
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: var(--rose-900);
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.menu-item {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.menu-item:hover {
+  transform: translateY(-10px);
+}
+
+.menu-item img {
+  max-width: 100%;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+.menu-item h2 {
+  font-size: 1.5rem;
+  color: var(--rose-900);
+  margin-bottom: 0.5rem;
+}
+
+.menu-item p {
+  font-size: 1rem;
+  color: var(--rose-300);
+  margin-bottom: 1rem;
+}
+
+.menu-item .price {
+  font-size: 1.25rem;
+  color: var(--red);
+  font-weight: 700;
+}
+
+.add-to-cart {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--red);
+  color: white;
+  border-radius: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.add-to-cart:hover {
+  background-color: var(--rose-500);
+}
+
+.cart {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 350px;
+  margin-top: 2rem;
+}
+
+.cart h2 {
+  font-size: 1.5rem;
+  color: var(--rose-900);
+  margin-bottom: 1rem;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--rose-400);
+}
+
+.cart-item p {
+  font-size: 1rem;
+  color: var(--rose-900);
+}
+
+.cart-item .item-price {
+  color: var(--red);
+  font-weight: 700;
+}
+
+.order-total {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--green);
+  margin-top: 1rem;
+}
+
+.confirm-order {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--red);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 1.5rem;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.confirm-order:hover {
+  background-color: var(--rose-500);
+}
+
+.footer {
+  text-align: center;
+  padding: 2rem;
+  background-color: var(--rose-900);
+  color: white;
+  font-size: 1rem;
+}
