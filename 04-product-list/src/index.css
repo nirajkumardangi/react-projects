@@ -39,12 +39,15 @@ body {
 }
 
 .container {
-  width: 80%;
-  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
   padding: 2rem;
 }
 
 h1 {
+  position: absolute;
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
@@ -53,8 +56,10 @@ h1 {
 }
 
 .menu-grid {
+  margin-top: 5rem;
+  width: 70%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1.5rem;
 }
 
@@ -62,53 +67,66 @@ h1 {
   background-color: #fff;
   border-radius: 12px;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-  padding: 1.5rem;
+  padding: 1.2rem;
   text-align: center;
-  transition: transform 0.3s ease-in-out;
-}
-
-.menu-item:hover {
-  transform: translateY(-10px);
 }
 
 .menu-item img {
   max-width: 100%;
   border-radius: 12px;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .menu-item h2 {
-  font-size: 1.5rem;
-  color: var(--rose-900);
-  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  color: var(--rose-700);
+  text-align: left;
 }
 
 .menu-item p {
   font-size: 1rem;
-  color: var(--rose-300);
-  margin-bottom: 1rem;
+  color: var(--rose-400);
+  text-align: left;
 }
 
 .menu-item .price {
   font-size: 1.25rem;
   color: var(--red);
   font-weight: 700;
+  text-align: left;
 }
 
-.add-to-cart {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  background-color: var(--red);
-  color: white;
-  border-radius: 8px;
+.menu-item button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0rem 1rem;
+  margin-bottom: -0.5rem;
+  outline: none;
+  border: 1px solid var(--rose-300);
+  background-color: var(--rose-50);
+  color: var(--rose-200);
+  border-radius: 5rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  font-size: 0.8rem;
+  position: relative;
+  bottom: 2.3rem;
+  left: 50%;
+  cursor: pointer;
+  transform: translateX(-50%);
   transition: background-color 0.3s ease-in-out;
 }
 
-.add-to-cart:hover {
-  background-color: var(--rose-500);
+.menu-item button:hover {
+  box-shadow: 2px 2px var(--red);
+}
+
+.add-to-cart img {
+  width: 1.4rem;
+  margin-top: 5px;
+  margin-right: 10px;
 }
 
 .cart {
@@ -116,8 +134,10 @@ h1 {
   padding: 1.5rem;
   border-radius: 12px;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-  max-width: 350px;
-  margin-top: 2rem;
+  width: 28%;
+  max-height: 80vh;
+  overflow: auto;
+  margin-top: 5rem;
 }
 
 .cart h2 {
@@ -129,7 +149,8 @@ h1 {
 .cart-item {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   padding: 1rem 0;
   border-bottom: 1px solid var(--rose-400);
 }
@@ -144,6 +165,19 @@ h1 {
   font-weight: 700;
 }
 
+.delete-item {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.delete-item button {
+  background: #fff;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
 .order-total {
   font-size: 1.25rem;
   font-weight: 700;
@@ -152,6 +186,7 @@ h1 {
 }
 
 .confirm-order {
+  cursor: pointer;
   display: block;
   width: 100%;
   padding: 1rem;
@@ -162,17 +197,9 @@ h1 {
   font-weight: 700;
   text-transform: uppercase;
   margin-top: 1.5rem;
-  transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.2s ease;
 }
 
 .confirm-order:hover {
-  background-color: var(--rose-500);
-}
-
-.footer {
-  text-align: center;
-  padding: 2rem;
-  background-color: var(--rose-900);
-  color: white;
-  font-size: 1rem;
+  background-color: var(--green);
 }
