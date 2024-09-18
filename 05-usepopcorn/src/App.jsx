@@ -13,17 +13,17 @@ import ErrorMessage from './components/ErrorMessage';
 const KEY = '721c3a22';
 
 export default function App() {
+  const [query, setQuery] = useState('');
   const [movies, setMovies] = useState([]);
   const [watched, setWatched] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
-  const query = 'arjuna';
 
   useEffect(() => {
     async function fetchMovies() {
       try {
-        setError('');
         setIsLoading(true);
+        setError('');
 
         const res = await fetch(
           `http://www.omdbapi.com/?apikey=${KEY}&s=${query}`
@@ -47,13 +47,19 @@ export default function App() {
       }
     }
 
+    if (query.length < 3) {
+      setMovies([]);
+      setError('');
+      return;
+    }
+
     fetchMovies();
-  }, []);
+  }, [query]);
 
   return (
     <>
       <Navbar>
-        <Search />
+        <Search query={query} setQuery={setQuery} />
         <NumResults movies={movies} />
       </Navbar>
 
