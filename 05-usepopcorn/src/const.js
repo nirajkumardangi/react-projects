@@ -1,3 +1,5 @@
+export const API_KEY = '721c3a22';
+
 export const tempMovieData = [
   {
     imdbID: 'tt1375666',

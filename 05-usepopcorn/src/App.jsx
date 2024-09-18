@@ -10,8 +10,7 @@ import Search from './components/Search';
 import NumResults from './components/NumResult';
 import ErrorMessage from './components/ErrorMessage';
 import MovieDetails from './components/MovieDetails';
-
-const KEY = '721c3a22';
+import { API_KEY } from './const';
 
 export default function App() {
   const [query, setQuery] = useState('');
@@ -36,7 +35,7 @@ export default function App() {
         setError('');
 
         const res = await fetch(
-          `http://www.omdbapi.com/?apikey=${KEY}&s=${query}`
+          `http://www.omdbapi.com/?apikey=${API_KEY}&s=${query}`
         );
 
         if (!res.ok) {
@@ -50,7 +49,6 @@ export default function App() {
         }
 
         setMovies(data.Search);
-        console.log(data.Search);
       } catch (err) {
         setError(err.message);
       } finally {
