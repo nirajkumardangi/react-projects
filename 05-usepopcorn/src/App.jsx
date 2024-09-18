@@ -3,8 +3,11 @@ import Navbar from './components/Navbar';
 import WatchedSummary from './components/WatchedSummary';
 import WatchedMoviesList from './components/WatchedMoviesList';
 import MoviesList from './components/MoviesList';
+import Loader from './components/Loader';
 import Main from './components/Main';
 import Box from './components/Box';
+import Search from './components/Search';
+import NumResults from './components/NumResult';
 
 const KEY = '721c3a22';
 
@@ -32,13 +35,13 @@ export default function App() {
 
   return (
     <>
-      <Navbar movies={movies} />
+      <Navbar>
+        <Search />
+        <NumResults movies={movies} />
+      </Navbar>
 
       <Main>
-        <Box>
-          <MoviesList movies={movies} />
-        </Box>
-
+        <Box>{isLoading ? <Loader /> : <MoviesList movies={movies} />}</Box>
         <Box>
           <WatchedMoviesList watched={watched} />
           <WatchedSummary watched={watched} />
