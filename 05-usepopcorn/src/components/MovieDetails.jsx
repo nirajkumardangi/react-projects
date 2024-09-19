@@ -61,8 +61,12 @@ export default function MovieDetails({
   }, [selectedId]);
 
   useEffect(() => {
-    if(!title) return;
+    if (!title) return;
     document.title = `Movie | ${title}`;
+
+    return function () {
+      document.title = 'usePopcorn';
+    };
   }, [title]);
 
   return (
