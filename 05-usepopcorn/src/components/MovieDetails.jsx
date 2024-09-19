@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { API_KEY } from '../const';
 import StarRating from './StarRating';
 import Loader from './Loader';
+import { useKey } from '../hook/useKey';
 
 export default function MovieDetails({
   selectedId,
@@ -44,6 +45,8 @@ export default function MovieDetails({
     onAddWatched(newWatchedMovie);
     onCloseMovie();
   }
+
+  useKey('Escape', onCloseMovie);
 
   useEffect(() => {
     function callback(e) {
