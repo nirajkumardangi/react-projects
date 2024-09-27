@@ -1,10 +1,9 @@
 import NewTask from './NewTask';
 export default function Tasks({ tasks, onAdd, onDelete }) {
-  console.log(tasks);
   return (
     <section>
       <h2 className='text-2xl font-bold text-stone-700 mb-4'>Tasks</h2>
-      <NewTask onAdd={onAdd} onDelete={onDelete} />
+      <NewTask onAdd={onAdd} />
       {tasks.length === 0 && (
         <p className='text-stone-800 my-4'>
           This project does not have any tasks yet.
@@ -18,7 +17,9 @@ export default function Tasks({ tasks, onAdd, onDelete }) {
               <span className='text-stone-700 hover:text-red-500'>
                 {task.text}
               </span>
-              <button className='className="text-stone-700 hover:text-red-500'>
+              <button
+                onClick={() => onDelete(task.id)}
+                className='className="text-stone-700 hover:text-red-500'>
                 Clear
               </button>
             </li>
