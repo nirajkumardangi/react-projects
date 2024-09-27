@@ -11,6 +11,24 @@ function App() {
     tasks: [],
   });
 
+  function handleAddTask(text) {
+    setProjectState((prevState) => {
+      const taskId = Date.now();
+      const newTask = {
+        text: text,
+        projectId: prevState.selectedProjectID,
+        id: taskId,
+      };
+
+      return {
+        ...prevState,
+        tasks: [...prevState.tasks, newTask],
+      };
+    });
+  }
+
+  function handleDeleteTask() {}
+
   function handleSelectProject(id) {
     setProjectState((prevState) => {
       return {
@@ -74,6 +92,9 @@ function App() {
     <SelectedProject
       project={selectedProject}
       onDelete={handleDeleteProject}
+      onAddTask={handleAddTask}
+      onDeleteTask={handleDeleteTask}
+      tasks={projectState.tasks}
     />
   );
 
