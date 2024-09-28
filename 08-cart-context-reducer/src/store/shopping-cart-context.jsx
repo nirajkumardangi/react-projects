@@ -1,13 +1,13 @@
-import { createContext } from 'react';
-import { useState } from 'react';
+import { useState, createContext } from 'react';
+import { DUMMY_PRODUCTS } from '../dummy-products';
 
 export const CartContext = createContext({
   items: [],
-  handleAddItemToCart: () => {},
-  handleUpdateCartItemQuantity: () => {},
+  addItemToCart: () => {},
+  updateItemQuantity: () => {},
 });
 
-export default function CartContextProvider(children) {
+export default function CartContextProvider({ children }) {
   const [shoppingCart, setShoppingCart] = useState({
     items: [],
   });
@@ -68,13 +68,13 @@ export default function CartContextProvider(children) {
     });
   }
 
-  const crtValue = {
-    items: [],
+  const ctxValue = {
+    items: shoppingCart.items,
     addItemToCart: handleAddItemToCart,
     updateItemQuantity: handleUpdateCartItemQuantity,
   };
 
   return (
-    <CartContext.Provider value={crtValue}>{children}</CartContext.Provider>
+    <CartContext.Provider value={ctxValue}>{children}</CartContext.Provider>
   );
 }
