@@ -8,7 +8,6 @@ function App() {
   return (
     <CartContextProvider>
       <Header
-        cart={shoppingCart}
         onUpdateCartItemQuantity={handleUpdateCartItemQuantity}
       />
       <Shop>

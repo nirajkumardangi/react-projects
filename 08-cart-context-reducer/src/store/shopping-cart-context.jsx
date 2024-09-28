@@ -7,12 +7,6 @@ export const CartContext = createContext({
   handleUpdateCartItemQuantity: () => {},
 });
 
-const crtValue = {
-  items: [],
-  addItemToCart: handleAddItemToCart,
-  updateItemQuantity: handleUpdateCartItemQuantity,
-};
-
 export default function CartContextProvider(children) {
   const [shoppingCart, setShoppingCart] = useState({
     items: [],
@@ -73,6 +67,12 @@ export default function CartContextProvider(children) {
       };
     });
   }
+
+  const crtValue = {
+    items: [],
+    addItemToCart: handleAddItemToCart,
+    updateItemQuantity: handleUpdateCartItemQuantity,
+  };
 
   return (
     <CartContext.Provider value={crtValue}>{children}</CartContext.Provider>
