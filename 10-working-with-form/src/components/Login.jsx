@@ -1,27 +1,16 @@
 import { useState } from 'react';
 
 export default function Login() {
-  const [enteredEmail, setEnteredEmail] = useState('');
-  const [enteredPassword, setEnteredPassword] = useState('');
+  const [formData, setFormData] = useState({ email: '', password: '' });
 
-  function handleSubmit(e) {
-    e.preventDefault();
-
-    console.log(enteredEmail);
-    console.log(enteredPassword);
-    setEnteredEmail('');
-    setEnteredPassword('');
+  function handleChange(initializer, value) {
+    setFormData((prevData) => ({ ...prevData, [initializer]: value }));
   }
 
-  function handleReset(e) {
-    e.preventDefault();
-
-    setEnteredEmail('');
-    setEnteredPassword('');
-  }
+  console.log(formData);
 
   return (
-    <form onSubmit={handleSubmit} onReset={handleReset}>
+    <form>
       <h2>Login</h2>
 
       <div className='control-row'>
@@ -31,8 +20,8 @@ export default function Login() {
             id='email'
             type='email'
             name='email'
-            value={enteredEmail}
-            onChange={(e) => setEnteredEmail(e.target.value)}
+            value={formData.email}
+            onChange={(e) => handleChange('email', e.target.value)}
           />
         </div>
 
@@ -42,8 +31,8 @@ export default function Login() {
             id='password'
             type='password'
             name='password'
-            value={enteredPassword}
-            onChange={(e) => setEnteredPassword(e.target.value)}
+            value={formData.password}
+            onChange={(e) => handleChange('password', e.target.value)}
           />
         </div>
       </div>
