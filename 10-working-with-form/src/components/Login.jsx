@@ -4,11 +4,24 @@ export default function Login() {
   const [enteredEmail, setEnteredEmail] = useState('');
   const [enteredPassword, setEnteredPassword] = useState('');
 
-  console.log(enteredEmail);
-  console.log(enteredPassword);
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    console.log(enteredEmail);
+    console.log(enteredPassword);
+    setEnteredEmail('');
+    setEnteredPassword('');
+  }
+
+  function handleReset(e) {
+    e.preventDefault();
+
+    setEnteredEmail('');
+    setEnteredPassword('');
+  }
 
   return (
-    <form>
+    <form onSubmit={handleSubmit} onReset={handleReset}>
       <h2>Login</h2>
 
       <div className='control-row'>
@@ -36,8 +49,10 @@ export default function Login() {
       </div>
 
       <p className='form-actions'>
-        <button className='button button-flat'>Reset</button>
-        <button className='button' onClick={handleSubmit}>
+        <button className='button button-flat' type='reset'>
+          Reset
+        </button>
+        <button className='button' type='submit'>
           Login
         </button>
       </p>
