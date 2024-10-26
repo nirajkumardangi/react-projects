@@ -48,3 +48,9 @@ ul {
   margin: 0;
   padding: 0;
 }
+
+.center-home {
+  max-width: 50rem;
+  margin: 2rem auto;
+  text-align: center;
+}
