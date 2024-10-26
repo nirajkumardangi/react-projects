@@ -1,11 +1,1 @@
-{
-  "events": [
-    {
-      "id": "e1",
-      "title": "A dummy event",
-      "date": "2023-02-22",
-      "image": "https://blog.hubspot.de/hubfs/Germany/Blog_images/Optimize_Marketing%20Events%20DACH%202021.jpg",
-      "description": "Join this amazing event and connect with fellow developers."
-    }
-  ]
-}
+{"events":[{"title":"Dolor doloribus null","image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdkxaQMX4NW8V5JvJ1hV1laDEmbgbPNvNEUA&s","date":"2001-01-02","description":"Amet et aut delenit","id":"99c0e45a-8d10-4df9-98fe-01b75f243a7f"},{"title":"Saepe expedita odit ","image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdkxaQMX4NW8V5JvJ1hV1laDEmbgbPNvNEUA&s","date":"1985-09-05","description":"Laborum dolorum adip","id":"e28e7a63-33e1-4753-b6f4-4e3202f9ca15"},{"title":"Ex laboris doloremqu","image":"https://www.rygys.org.au","date":"1996-03-01","description":"Dolore saepe ducimus","id":"4adaac86-f142-460f-9367-0194e77b8ed7"},{"title":"Impedit maxime qui ","image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdkxaQMX4NW8V5JvJ1hV1laDEmbgbPNvNEUA&s","date":"2008-01-02","description":"Tempore explicabo ","id":"fc5c5eef-a329-47ab-a001-868f67ea15cb"},{"id":"e1","title":"A dummy event","date":"2023-02-22","image":"https://blog.hubspot.de/hubfs/Germany/Blog_images/Optimize_Marketing%20Events%20DACH%202021.jpg","description":"Join this amazing event and connect with fellow developers."}]}
