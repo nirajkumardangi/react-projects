@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+
+:root {
+  /* THEME 1 */
+
+  /* Backgrounds */
+  --main-background: hsl(222, 26%, 31%);
+  --toggle-background: hsl(223, 31%, 20%);
+  --keypad-background: hsl(223, 31%, 20%);
+  --screen-background: hsl(224, 36%, 15%);
+  --key-background: hsl(225, 21%, 49%);
+  --key-shadow: hsl(224, 28%, 35%);
+
+  /* keys */
+  --red: hsl(6, 63%, 50%);
+  --dark-red: hsl(6, 70%, 34%);
+  --light-grayish-orange: hsl(30, 25%, 89%);
+  --grayish-orange: hsl(28, 16%, 65%);
+
+  /* Text */
+  --very-dark-grayish-blue: hsl(221, 14%, 31%);
+  --white: hsl(0, 0%, 100%);
+
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+body {
+  max-width: 800px;
+  background-color: var(--main-background);
+  color: var(--white);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+header {
+  max-width: 500px;
+  margin: 2rem auto 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.themes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#divider {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.8rem;
+  align-items: flex-end;
+}
+
+.theme-number {
+  align-items: center;
+  display: flex;
+  gap: 1.1rem;
+}
+
+.theme-color {
+  background-color: var(--toggle-background);
+  padding: 0.4rem;
+  border-radius: 1rem;
+  margin-top: 0.3rem;
+  align-items: center;
+  display: flex;
+  gap: 0.25rem;
+}
+
+/* .theme-color {
+  display: flex;
+  align-items: center;
+} */
+
+/* Output Area */
+.output-area {
+  background-color: var(--toggle-background);
+  max-width: 500px;
+  height: fit-content;
+  margin: 1rem auto;
+  border-radius: 0.5rem;
+}
+
+.output-area p {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: right;
+  padding: 1rem 0.5rem;
+  overflow: hidden;
+}
+
+/* Input Area */
+.input-area {
+  max-width: 500px;
+  margin: 1rem auto;
+  height: auto;
+  background-color: var(--keypad-background);
+  border-radius: 0.5rem;
+}
+
+/* Input Area and Buttons Container */
+.input-area .buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  padding: 1.5rem;
+}
+
+button {
+  padding: 0.7rem;
+  font-size: 1.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  background: var(--light-grayish-orange);
+  color: var(--very-dark-grayish-blue);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 700;
+  box-shadow: 0px 3px var(--grayish-orange);
+}
+
+/* Wide Buttons */
+button.wide {
+  grid-column: span 2;
+  background: #f54747;
+}
+
+/* Reset & Del Button Color */
+button.wide:nth-child(17),
+button:nth-child(4) {
+  background: var(--key-background);
+  color: var(--white);
+  font-size: 1.2rem;
+  box-shadow: 0px 3px var(--key-shadow);
+}
+
+/* Equals Button Color */
+button.wide:nth-child(18) {
+  background: var(--red);
+  color: (var(--white));
+  font-size: 1.2rem;
+  box-shadow: 0px 3px var(--dark-red);
+}
