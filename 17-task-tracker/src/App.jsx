@@ -1,23 +1,24 @@
-import './App.css';
-import AddTaskInput from './components/AddTaskInput';
-import FilterButton from './components/FilterButton';
-import Footer from './components/Footer';
-import Header from './components/Header';
-import StatsCard from './components/StatsCard';
-import TasksList from './components/TasksList';
-
 import { useState } from 'react';
 
-function App() {
-  const TASKS = [
-    { id: 1, text: 'Learn React', completed: true },
-    { id: 2, text: 'Build a project', completed: false },
-    { id: 3, text: 'Deploy Online', completed: false },
-    { id: 4, text: 'Testing the app', completed: true },
-    { id: 5, text: 'Maintain app', completed: false },
-  ];
+import './styles/App.css';
+import AddTaskInput from './components/tasks/AddTaskInput';
+import FilterButtons from './components/common/FilterButtons';
+import Footer from './components/layout/Footer';
+import Header from './components/layout/Header';
+import StatsCard from './components/tasks/StatsCard';
+import TasksList from './components/tasks/TasksList';
 
+import { TASKS } from './utils/utils';
+
+function App() {
   const [tasks, setTasks] = useState(TASKS);
+  const [filter, setFilter] = useState('all');
+
+  const filteredTasks = tasks.filter((task) => {
+    if (filter === 'all') return true;
+    if (filter === 'pending') return !task.completed;
+    if (filter === 'completed') return task.completed;
+  });
 
   return (
     <>
@@ -26,9 +27,9 @@ function App() {
           <Header />
           <StatsCard tasks={tasks} />
           <AddTaskInput tasks={tasks} setTasks={setTasks} />
-          <FilterButton />
-          <TasksList tasks={tasks} />
-          <Footer tasks = {tasks} />
+          <FilterButtons activeFilter={filter} setActiveFilter={setFilter} />
+          <TasksList tasks={filteredTasks} allTasks={tasks} setTasks={setTasks} />
+          <Footer tasks={tasks} />
         </div>
       </div>
     </>
