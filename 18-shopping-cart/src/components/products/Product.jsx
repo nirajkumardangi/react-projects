@@ -1,0 +1,43 @@
+import { Plus, Heart, Star } from 'lucide-react';
+
+function Product() {
+  return (
+    <div className='bg-white rounded-2xl p-5 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 animate-slide-up'>
+      <div className='flex gap-4'>
+        <div className='w-24 h-24 bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl flex items-center justify-center text-white text-3xl font-bold flex-shrink-0'>
+          👟
+        </div>
+        <div className='flex-1'>
+          <div className='flex items-start justify-between mb-2'>
+            <div>
+              <h3 className='text-xl font-bold text-gray-800'>Running Shoes</h3>
+              <div className='flex items-center gap-1 text-yellow-500 text-sm mt-1'>
+                <Star className='w-4 h-4 fill-current' />
+                <Star className='w-4 h-4 fill-current' />
+                <Star className='w-4 h-4 fill-current' />
+                <Star className='w-4 h-4 fill-current' />
+                <Star className='w-4 h-4' />
+                <span className='text-gray-600 ml-1'>(4.0)</span>
+              </div>
+            </div>
+            <button className='text-pink-500 hover:text-pink-700 transition-colors'>
+              <Heart className='w-6 h-6' />
+            </button>
+          </div>
+          <p className='text-gray-600 text-sm mb-3'>
+            Comfortable sports shoes for running
+          </p>
+          <div className='flex items-center justify-between'>
+            <span className='text-2xl font-bold text-indigo-600'>₹1,999</span>
+            <button className='bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-2 rounded-xl font-semibold hover:from-indigo-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-200 flex items-center gap-2'>
+              <Plus className='w-5 h-5' />
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default Product;
