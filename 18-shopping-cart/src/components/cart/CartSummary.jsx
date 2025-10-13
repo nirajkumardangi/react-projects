@@ -17,8 +17,7 @@ function CartSummary() {
           </div>
         </div>
       </div>
-
-      <button className='w-full bg-gradient-to-r from-green-500 to-emerald-600 text-white py-4 rounded-xl font-bold text-lg hover:from-green-600 hover:to-emerald-700 transform hover:scale-105 transition-all duration-200 shadow-lg'>
+      <button className='w-full bg-gradient-to-r from-green-500 to-emerald-600 text-white py-4 rounded-xl font-bold text-lg hover:from-green-600 hover:to-emerald-700 transform hover:scale-102 transition-all duration-200 shadow-lg cursor-pointer'>
         Checkout Now
       </button>
     </>

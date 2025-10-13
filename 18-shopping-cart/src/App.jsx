@@ -1,4 +1,4 @@
-import CartSummary from './components/cart/CartSummary';
+import { useState } from 'react';
 import CartSummaryBar from './components/cart/CartSummaryBar';
 import ShoppingCartSection from './components/cart/ShoppingCartSection';
 import Header from './components/layout/Header';
@@ -6,6 +6,19 @@ import ProductsSection from './components/products/ProductsSection';
 import './styles/App.css';
 
 function App() {
+  const cartItems = [
+    {
+      id: 1,
+      image: '👟',
+      name: 'Running Shoes',
+      price: 100,
+      currency: 'INR',
+      quantity: 1,
+    },
+  ];
+  
+  const [cart, setCart] = useState(cartItems);
+
   return (
     <div className='min-h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 p-4 md:p-8'>
       <div className='max-w-7xl mx-auto'>
@@ -13,8 +26,7 @@ function App() {
         <CartSummaryBar />
         <div className='grid lg:grid-cols-3 gap-6'>
           <ProductsSection />
-          <ShoppingCartSection />
-          <CartSummary />
+          <ShoppingCartSection cartItem={cart} onSetCartItem={setCart} />
         </div>
       </div>
     </div>

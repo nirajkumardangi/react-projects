@@ -1,6 +1,8 @@
 import { Package } from 'lucide-react';
 import Product from './Product';
 
+import { PRODUCTS } from '../../utils/data';
+
 function ProductsSection() {
   return (
     <div className='lg:col-span-2'>
@@ -10,9 +12,9 @@ function ProductsSection() {
           Available Products
         </h2>
         <div className='space-y-4'>
-          <Product />
-          <Product />
-          <Product />
+          {PRODUCTS.map((item) => (
+            <Product key={item.id} {...item} />
+          ))}
         </div>
       </div>
     </div>
