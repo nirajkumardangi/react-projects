@@ -3,7 +3,7 @@ import Product from './Product';
 
 import { PRODUCTS } from '../../utils/data';
 
-function ProductsSection() {
+function ProductsSection({ onSetCartItem }) {
   return (
     <div className='lg:col-span-2'>
       <div className='bg-white/10 backdrop-blur-md rounded-3xl p-6 border border-white/20 shadow-xl'>
@@ -13,7 +13,11 @@ function ProductsSection() {
         </h2>
         <div className='space-y-4'>
           {PRODUCTS.map((item) => (
-            <Product key={item.id} {...item} />
+            <Product
+              key={item.id}
+              onSetCartItem={onSetCartItem}
+              {...item}
+            />
           ))}
         </div>
       </div>

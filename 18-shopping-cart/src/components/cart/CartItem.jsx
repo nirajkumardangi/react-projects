@@ -1,5 +1,4 @@
 import { Trash2, Plus, Minus } from 'lucide-react';
-import CartSummary from './CartSummary';
 import { currencyFormatter } from '../../utils/currencyFormat';
 
 function CartItem({ image, name, price, currency, quantity }) {
@@ -13,7 +12,7 @@ function CartItem({ image, name, price, currency, quantity }) {
           <div className='flex-1 min-w-0'>
             <h3 className='font-bold text-gray-800 truncate'>{name}</h3>
             <p className='text-indigo-600 font-semibold'>
-              {currencyFormatter(currency, price)}
+              {currencyFormatter(price)}
             </p>
           </div>
           <button className='text-red-500 hover:text-red-700 transition-colors flex-shrink-0'>
@@ -33,11 +32,10 @@ function CartItem({ image, name, price, currency, quantity }) {
             </button>
           </div>
           <span className='text-lg font-bold text-gray-800'>
-            {currencyFormatter(currency, price, quantity)}
+            {currencyFormatter(quantity * price)}
           </span>
         </div>
       </div>
-      <CartSummary />
     </>
   );
 }

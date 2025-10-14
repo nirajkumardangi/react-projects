@@ -1,7 +1,8 @@
 import { ShoppingCart } from 'lucide-react';
 import CartItem from './CartItem';
+import CartSummary from './CartSummary';
 
-function ShoppingCartSection({ cartItem, onSetCartItem }) {
+function ShoppingCartSection({ cartItems }) {
   return (
     <div className='lg:col-span-1'>
       <div className='bg-white/10 backdrop-blur-md rounded-3xl p-6 border border-white/20 shadow-xl sticky top-4'>
@@ -10,10 +11,11 @@ function ShoppingCartSection({ cartItem, onSetCartItem }) {
           Your Cart
         </h2>
         <div className='space-y-3 mb-8'>
-          {cartItem.map((item) => (
+          {cartItems.map((item) => (
             <CartItem key={item.id} {...item} />
           ))}
         </div>
+        <CartSummary cartItems={cartItems} />
       </div>
     </div>
   );
