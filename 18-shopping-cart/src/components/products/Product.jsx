@@ -10,7 +10,6 @@ function Product({
   rating,
   description,
   liked,
-  quantity,
   onSetCartItem,
 }) {
   function addToCart(product) {

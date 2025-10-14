@@ -1,9 +1,11 @@
 import { ShoppingCart } from 'lucide-react';
 import { cartTotalCalc } from '../../utils/cartTotalCalc';
 import { currencyFormatter } from '../../utils/currencyFormat';
+import { discountCalc } from '../../utils/discountCalc';
 
 function CartSummaryBar({ cartItems }) {
   const { totalCartAmount, totalProductCount } = cartTotalCalc(cartItems);
+  const discount = discountCalc(cartItems);
 
   return (
     <div className='bg-white/20 backdrop-blur-lg rounded-3xl p-6 mb-8 border border-white/30 shadow-2xl'>
@@ -25,7 +27,7 @@ function CartSummaryBar({ cartItems }) {
         <div className='text-right'>
           <p className='text-white/80 text-sm font-medium'>Total Amount</p>
           <p className='text-3xl font-bold text-white'>
-            {currencyFormatter(totalCartAmount)}
+            {currencyFormatter(totalCartAmount - discount)}
           </p>
         </div>
       </div>

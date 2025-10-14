@@ -15,19 +15,19 @@ function CartItem({ image, name, price, currency, quantity }) {
               {currencyFormatter(price)}
             </p>
           </div>
-          <button className='text-red-500 hover:text-red-700 transition-colors flex-shrink-0'>
+          <button className='text-red-500 hover:text-red-700 transition-colors flex-shrink-0 cursor-pointer'>
             <Trash2 className='w-5 h-5' />
           </button>
         </div>
         <div className='flex items-center justify-between'>
           <div className='flex items-center gap-2'>
-            <button className='w-8 h-8 bg-gray-200 hover:bg-gray-300 rounded-lg flex items-center justify-center transition-colors'>
+            <button className='w-8 h-8 bg-gray-200 hover:bg-gray-300 rounded-lg flex items-center justify-center transition-colors cursor-pointer'>
               <Minus className='w-4 h-4 text-gray-700' />
             </button>
             <span className='text-lg font-bold text-gray-800 w-8 text-center'>
               {quantity}
             </span>
-            <button className='w-8 h-8 bg-indigo-600 hover:bg-indigo-700 rounded-lg flex items-center justify-center transition-colors'>
+            <button className='w-8 h-8 bg-indigo-600 hover:bg-indigo-700 rounded-lg flex items-center justify-center transition-colors cursor-pointer'>
               <Plus className='w-4 h-4 text-white' />
             </button>
           </div>

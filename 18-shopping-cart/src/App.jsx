@@ -15,7 +15,7 @@ function App() {
         <CartSummaryBar cartItems={cart} />
         <div className='grid lg:grid-cols-3 gap-6'>
           <ProductsSection onSetCartItem={setCart} />
-          <ShoppingCartSection cartItems={cart} />
+          <ShoppingCartSection cartItems={cart} onSetCartItem={setCart} />
         </div>
       </div>
     </div>
