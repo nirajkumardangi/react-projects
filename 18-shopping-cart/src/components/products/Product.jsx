@@ -6,7 +6,6 @@ function Product({
   image,
   name,
   price,
-  currency,
   rating,
   description,
   liked,
@@ -26,7 +25,7 @@ function Product({
         );
       } else {
         // If not exists → add new item with quantity = 1
-        return [...prevCart, { ...product, quantity: 1 }];
+        return [...prevCart, { ...product, quantity: 1, liked: false }];
       }
     });
   }
@@ -47,19 +46,23 @@ function Product({
                   .map((_, index) => (
                     <Star
                       key={index}
-                      className={`w-4 h-4 ${
-                        index < rating ? 'fill-current' : ''
-                      }`}
+                      className={`w-4 h-4`}
+                      fill={index < rating ? 'currentColor' : 'none'}
+                      stroke='currentColor'
                     />
                   ))}
                 <span className='text-gray-600 ml-1'>({rating}.0)</span>
               </div>
             </div>
-            <button className='text-pink-500 hover:text-pink-700 transition-colors'>
+            <button
+              onClick={() => handleLiked(id)}
+              className='text-pink-500 hover:text-pink-700 transition-colors'
+              aria-label={liked ? 'Unlike' : 'Like'}
+            >
               <Heart
-                className={`w-6 h-6 cursor-pointer ${
-                  liked ? 'fill-current' : ''
-                }`}
+                className='w-6 h-6 cursor-pointer'
+                fill={liked ? 'currentColor' : 'none'}
+                stroke='currentColor'
               />
             </button>
           </div>
@@ -69,8 +72,8 @@ function Product({
               {currencyFormatter(price)}
             </span>
             <button
-              onClick={() => addToCart({ id, image, name, price, currency })}
-              className='bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-2 rounded-xl font-semibold hover:from-indigo-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-200 flex items-center gap-2 cursor-pointer'
+              onClick={() => addToCart({ id, image, name, price })}
+              className='bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-2 rounded-xl font-semibold hover:from-indigo-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-200 flex items-center gap-2   cursor-pointer'
             >
               <Plus className='w-5 h-5' />
               Add to Cart

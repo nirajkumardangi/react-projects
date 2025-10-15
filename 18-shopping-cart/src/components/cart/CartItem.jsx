@@ -1,7 +1,46 @@
 import { Trash2, Plus, Minus } from 'lucide-react';
 import { currencyFormatter } from '../../utils/currencyFormat';
 
-function CartItem({ image, name, price, currency, quantity }) {
+function CartItem({
+  id,
+  image,
+  name,
+  price,
+  quantity,
+  cartItems,
+  onSetCartItem,
+}) {
+  // Remove from Cart Function
+  function removeFromCart(productId) {
+    onSetCartItem(cartItems.filter((item) => item.id !== productId));
+  }
+
+  // Increase Quantity Function
+  function increaseQuantity(productId) {
+    onSetCartItem(
+      cartItems.map((item) =>
+        item.id === productId ? { ...item, quantity: item.quantity + 1 } : item
+      )
+    );
+  }
+
+  // Decrease Quantity Function
+  function decreaseQuantity(productId) {
+    const item = cartItems.find((item) => item.id === productId);
+
+    if (item.quantity > 1) {
+      onSetCartItem(
+        cartItems.map((item) =>
+          item.id === productId
+            ? { ...item, quantity: item.quantity - 1 }
+            : item
+        )
+      );
+    } else {
+      removeFromCart(productId);
+    }
+  }
+
   return (
     <>
       <div className='bg-white rounded-xl p-4 shadow-lg'>
@@ -15,19 +54,28 @@ function CartItem({ image, name, price, currency, quantity }) {
               {currencyFormatter(price)}
             </p>
           </div>
-          <button className='text-red-500 hover:text-red-700 transition-colors flex-shrink-0 cursor-pointer'>
+          <button
+            onClick={() => removeFromCart(id)}
+            className='text-red-500 hover:text-red-700 transition-colors flex-shrink-0 cursor-pointer'
+          >
             <Trash2 className='w-5 h-5' />
           </button>
         </div>
         <div className='flex items-center justify-between'>
           <div className='flex items-center gap-2'>
-            <button className='w-8 h-8 bg-gray-200 hover:bg-gray-300 rounded-lg flex items-center justify-center transition-colors cursor-pointer'>
+            <button
+              onClick={() => decreaseQuantity(id)}
+              className='w-8 h-8 bg-gray-200 hover:bg-gray-300 rounded-lg flex items-center justify-center transition-colors cursor-pointer'
+            >
               <Minus className='w-4 h-4 text-gray-700' />
             </button>
             <span className='text-lg font-bold text-gray-800 w-8 text-center'>
               {quantity}
             </span>
-            <button className='w-8 h-8 bg-indigo-600 hover:bg-indigo-700 rounded-lg flex items-center justify-center transition-colors cursor-pointer'>
+            <button
+              onClick={() => increaseQuantity(id)}
+              className='w-8 h-8 bg-indigo-600 hover:bg-indigo-700 rounded-lg flex items-center justify-center transition-colors cursor-pointer'
+            >
               <Plus className='w-4 h-4 text-white' />
             </button>
           </div>

@@ -3,7 +3,7 @@ import CartItem from './CartItem';
 import CartSummary from './CartSummary';
 import EmptyCart from './EmptyCart';
 
-function ShoppingCartSection({ cartItems, onSetCartItem }) {
+function ShoppingCartSection({ cartItems = [], onSetCartItem }) {
   return (
     <div className='lg:col-span-1'>
       <div className='bg-white/10 backdrop-blur-md rounded-3xl p-6 border border-white/20 shadow-xl sticky top-4'>
@@ -13,7 +13,12 @@ function ShoppingCartSection({ cartItems, onSetCartItem }) {
         </h2>
         <div className='space-y-3 mb-8'>
           {cartItems.map((item) => (
-            <CartItem key={item.id} {...item} />
+            <CartItem
+              key={item.id}
+              cartItems={cartItems}
+              onSetCartItem={onSetCartItem}
+              {...item}
+            />
           ))}
         </div>
 

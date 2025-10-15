@@ -3,7 +3,7 @@ import { cartTotalCalc } from '../../utils/cartTotalCalc';
 import { currencyFormatter } from '../../utils/currencyFormat';
 import { discountCalc } from '../../utils/discountCalc';
 
-function CartSummary({ cartItems, onSetCartItem }) {
+function CartSummary({ cartItems = [], onSetCartItem }) {
   const { totalCartAmount } = cartTotalCalc(cartItems);
   const discount = discountCalc(cartItems);
 
@@ -51,7 +51,9 @@ function CartSummary({ cartItems, onSetCartItem }) {
         className='w-full bg-gradient-to-r from-green-500 to-emerald-600 text-white py-4 rounded-xl font-bold text-lg hover:from-green-600 hover:to-emerald-700 transform hover:scale-102 transition-all duration-200 shadow-lg cursor-pointer'
         disabled={isSuccess}
       >
-        {isSuccess ? 'Order Placing...' : 'Checkout Now'}
+        {isSuccess || cartItems.length === 0
+          ? 'Order Placing...'
+          : 'Checkout Now'}
       </button>
     </>
   );
