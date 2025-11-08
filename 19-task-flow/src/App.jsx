@@ -7,21 +7,36 @@ import SearchFilter from './components/SearchFilter';
 import { INITIAL_PROJECTS } from './utils';
 
 function App() {
-  const [projects, setProjects] = useState(INITIAL_PROJECTS);
+  const [allProjects, setAllProjects] = useState(INITIAL_PROJECTS);
+  const [visibleProjects, setVisibleProjects] = useState(INITIAL_PROJECTS);
 
   return (
     <div className='app-container'>
       <Header />
-      <GlobalStats projects={projects} />
-      <SearchFilter />
-      <AddProject projects={projects} setProjects={setProjects} />
+      <GlobalStats projects={visibleProjects} />
+      <SearchFilter
+        allProjects={allProjects}
+        setVisibleProjects={setVisibleProjects}
+      />
+      <AddProject
+        projects={allProjects}
+        setProjects={(newList) => {
+          setAllProjects(newList);
+          setVisibleProjects(newList);
+        }}
+      />
 
-      {projects.length === 0 ? (
+      {visibleProjects.length === 0 ? (
         <div className='empty-state'>
           <p> No projects yet. Create one to get started! 🚀</p>
         </div>
       ) : (
-        <ProjectsList projects={projects} setProjects={setProjects} />
+        <ProjectsList
+          projects={visibleProjects}
+          allProjects={allProjects}
+          setAllProjects={setAllProjects}
+          setVisibleProjects={setVisibleProjects}
+        />
       )}
     </div>
   );

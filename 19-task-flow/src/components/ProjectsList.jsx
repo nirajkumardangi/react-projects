@@ -1,13 +1,21 @@
 import ProjectCard from './ProjectCard';
 
-function ProjectsList({ projects, setProjects }) {
+function ProjectsList({
+  projects,
+  allProjects,
+  setAllProjects,
+  setVisibleProjects,
+}) {
   return (
     <>
       {projects.map((project) => (
         <ProjectCard
           key={project.id}
-          projects={projects}
-          setProjects={setProjects}
+          projects={allProjects}
+          setProjects={(updated) => {
+            setAllProjects(updated);
+            setVisibleProjects(updated);
+          }}
           {...project}
         />
       ))}
