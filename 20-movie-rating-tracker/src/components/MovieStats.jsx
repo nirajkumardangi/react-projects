@@ -5,7 +5,7 @@ function MovieStats({ movies }) {
   const watchedMovies = movies.filter((m) => m.watched).length;
   const ratedMovies = movies.filter((movie) => movie.movieRating).length;
 
-  const avgRating = 
+  const avgRating =
     ratedMovies > 0
       ? (
           movies.reduce((sum, m) => sum + (m.movieRating || 0), 0) / ratedMovies
@@ -19,7 +19,7 @@ function MovieStats({ movies }) {
     totalMovies > 0 ? Math.round((ratedMovies / totalMovies) * 100) : 0;
 
   return (
-    <div className='bg-gradient-to-r from-purple-600 to-indigo-700 text-white rounded-2xl shadow-xl p-8 mb-8'>
+    <div className='bg-linear-to-r from-purple-600 to-indigo-700 text-white rounded-2xl shadow-xl p-8 mb-8'>
       <h2 className='text-3xl font-bold mb-6 text-center'>
         📊 Your Movie Stats
       </h2>
