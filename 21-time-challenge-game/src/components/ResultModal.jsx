@@ -22,7 +22,7 @@ function ResultModal({ isOpen, onClose, result, timeDiff, targetTime }) {
     <div className='fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 p-4'>
       <div className='bg-white rounded-2xl shadow-2xl max-w-md w-full p-8'>
         <div
-          className={`bg-gradient-to-r ${getResultColor()} text-white rounded-xl p-6 mb-6 text-center`}
+          className={`bg-linear-to-r ${getResultColor()} text-white rounded-xl p-6 mb-6 text-center`}
         >
           <div className='text-6xl mb-2'>{getResultEmoji()}</div>
           <h2 className='text-3xl font-bold mb-2'>{result}</h2>
@@ -51,7 +51,7 @@ function ResultModal({ isOpen, onClose, result, timeDiff, targetTime }) {
 
         <button
           onClick={onClose}
-          className='w-full py-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-bold rounded-lg hover:from-purple-700 hover:to-indigo-700 transition transform hover:scale-105'
+          className='w-full py-3 bg-linear-to-r from-purple-600 to-indigo-600 text-white font-bold rounded-lg hover:from-purple-700 hover:to-indigo-700 transition transform hover:scale-105'
         >
           Play Again
         </button>
