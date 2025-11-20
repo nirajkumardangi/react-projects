@@ -30,7 +30,7 @@ function ResultModal({ isOpen, onClose, result, timeDiff, targetTime }) {
           <p className='text-lg opacity-90'>
             {timeDiff < 0
               ? `${Math.abs(timeDiff)}s early`
-              : `${timeDiff}s late`}
+              : `${result === 'Lost' ? targetTime : timeDiff}s late`}
           </p>
         </div>
 
@@ -44,7 +44,7 @@ function ResultModal({ isOpen, onClose, result, timeDiff, targetTime }) {
           <div className='flex justify-between items-center bg-gray-50 p-3 rounded-lg'>
             <span className='text-gray-600 font-medium'>Your Accuracy:</span>
             <span className='font-bold text-lg text-purple-600'>
-              {accuracy}%
+              {result === 'Lost' ? 0 : accuracy}%
             </span>
           </div>
         </div>

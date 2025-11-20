@@ -58,9 +58,15 @@ function App() {
     const actual = (stopTimeRef.current - startTimeRef.current) / 1000;
     timeDiff = +(actual - targetTimeRef.current).toFixed(2); // early = negative
 
-    if (Math.abs(timeDiff) <= 0.5) result = 'Perfect';
-    else if (Math.abs(timeDiff) <= 1) result = 'Good';
-    else result = 'Failed';
+    if (Math.abs(timeDiff) < 0.1) {
+      result = 'Lost';
+    } else if (Math.abs(timeDiff) <= 0.5) {
+      result = 'Perfect';
+    } else if (Math.abs(timeDiff) <= 1) {
+      result = 'Good';
+    } else {
+      result = 'Failed';
+    }
   }
 
   return (
