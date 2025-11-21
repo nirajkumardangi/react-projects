@@ -1,4 +1,7 @@
+import Input from './components/Input';
+import NewProject from './components/NewProject';
 import Sidebar from './components/Sidebar';
+import WelcomeScreen from './components/WelcomeScreen';
 
 function App() {
   const projects = [
@@ -10,6 +13,8 @@ function App() {
   return (
     <div className='h-screen flex bg-gray-100'>
       <Sidebar projects={projects} />
+      {/* <WelcomeScreen /> */}
+      <NewProject/>
     </div>
   );
 }
