@@ -1,4 +1,4 @@
-import {Folder, Plus} from 'lucide-react';
+import { Folder, Plus } from 'lucide-react';
 
 import Button from './Button';
 
@@ -25,7 +25,7 @@ function Sidebar({ projects }) {
             <Folder size={20} />
             <div className='flex-1 min-w-0'>
               <h3 className='font-semibold truncate'>{project.title}</h3>
-              <p className='text-xs opacity-75'>{project.tasks} tasks</p>
+              <p className='text-xs opacity-75'>{project.tasks.length} tasks</p>
             </div>
           </div>
         ))}

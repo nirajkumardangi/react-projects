@@ -1,4 +1,4 @@
-function Button({ children, variant = 'primary', icon: Icon }) {
+function Button({ children, variant = 'primary', icon: Icon, onClick }) {
   const variants = {
     primary: 'bg-blue-600 hover:bg-blue-700 text-white',
     secondary: 'bg-gray-600 hover:bg-gray-700 text-white',
@@ -8,6 +8,7 @@ function Button({ children, variant = 'primary', icon: Icon }) {
 
   return (
     <button
+      onClick={onClick}
       className={`px-4 py-2 rounded-lg font-semibold transition transform hover:scale-105 flex items-center gap-2 cursor-pointer ${variants[variant]}`}
     >
       {Icon && <Icon size={18} />}
