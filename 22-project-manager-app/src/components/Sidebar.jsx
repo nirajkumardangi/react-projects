@@ -4,7 +4,7 @@ import Button from './Button';
 
 function Sidebar({ projects }) {
   return (
-    <aside className='w-80 bg-gradient-to-b from-gray-800 to-gray-900 text-white p-6 flex flex-col'>
+    <aside className='w-80 bg-linear-to-b from-gray-800 to-gray-900 text-white p-6 flex flex-col'>
       <div className='mb-8'>
         <h2 className='text-2xl font-bold mb-2'>📁 My Projects</h2>
         <p className='text-gray-400 text-sm'>

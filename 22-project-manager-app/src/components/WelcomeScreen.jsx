@@ -3,7 +3,7 @@ import Button from './Button';
 
 function WelcomeScreen() {
   return (
-    <div className='flex-1 flex items-center justify-center bg-gradient-to-br from-blue-50 to-purple-50'>
+    <div className='flex-1 flex items-center justify-center bg-linear-to-br from-blue-50 to-purple-50'>
       <div className='text-center'>
         <Folder size={80} className='mx-auto mb-4 text-blue-600' />
         <h1 className='text-4xl font-bold text-gray-800 mb-2'>
